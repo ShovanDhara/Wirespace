@@ -1,0 +1,85 @@
+<div class="search-container">
+	<form #availSeatSearchForm="ngForm">
+		<div class="row m-0" *ngIf="isSearchContainerVisible">
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Country" required id="country" name="country" #country="ngModel" [(ngModel)]="availSeatSearchObj.country"
+						(selectionChange)="onChangeControl($event.value, 'country')">
+						<mat-option *ngFor="let country of countries" [value]="country.value">
+							{{ country.name }}
+						</mat-option>
+						</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select City" required id="city" name="city" #city="ngModel" [(ngModel)]="availSeatSearchObj.city"
+						(selectionChange)="onChangeControl($event.value, 'city')">
+						<mat-option *ngFor="let city of cities" [value]="city.value">
+							{{ city.name }}
+						</mat-option>
+						</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Facility" required id="facility" name="facility" #facility="ngModel" [(ngModel)]="availSeatSearchObj.facility">
+						<mat-option *ngFor="let facility of facilities" [value]="facility.value">
+							{{ facility.name }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Building" required id="buildingBlock" name="buildingBlock" #buildingBlock="ngModel" [(ngModel)]="availSeatSearchObj.buildingBlock">
+						<mat-option *ngFor="let block of buildingBlocks" [value]="block.value">
+							{{ block.name }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Floor" required id="buildingBlock" name="buildingBlock" #buildingBlock="ngModel" [(ngModel)]="availSeatSearchObj.floor">
+						<mat-option *ngFor="let block of floors" [value]="block.value">
+							{{ block.name }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6 offset-md-3 mt-3">
+				<button type="button" mat-raised-button class="btn btn-main btn-block" [disabled]="!availSeatSearchForm.valid" (click)="goNext()">Next</button>
+			</div>
+		</div>
+	</form>
+</div>
+<form #availSeatDateForm="ngForm">
+	<div class="row m-0" *ngIf="isRangeContainerVisible">
+		<div class="col-12 col-md-6 offset-md-3 mt-3">
+			<my-date-range-picker name="dateRange" id="dateRange" class="custom-range" #dateRange="ngModel" [options]="seatDateRangePickerOptions"
+				[(ngModel)]="dateRangeModel" required></my-date-range-picker>
+		</div>
+		<div class="col-12 col-md-6 offset-md-3 mt-3">
+			<button type="button" mat-raised-button class="btn btn-main btn-block" (click)="checkAvailableSeat()" [disabled]="!availSeatDateForm.valid">Check Available Seats</button>
+		</div>
+	</div>
+</form>
+<!--*ngIf="isAvailSeatContainerVisible"-->
+<div class="search-result-container pt-3" *ngIf="isAvailSeatContainerVisible">
+	<h6 class="font-weight-bold mb-4">Available Seats In: <small>{{availSeatSearchObj.city}}, {{availSeatSearchObj.buildingBlock}}, {{availSeatSearchObj.floor}}</small></h6>
+	<div class="row m-0 border-bottom pb-2 mb-2" *ngFor="let space of availableSpaces">
+		<div class="col-1 p-0">
+			<span class="seat-icon float-left mr-1"></span>
+		</div>
+		<div class="col-7 space-desc">
+			<h6 matLine> <span class="font-weight-bold">{{space.seat}}</span> <small>({{space.wing}})</small></h6>
+			<p matLine> {{space.fromDate}} to {{space.toDate}} </p>
+		</div>
+		<div class="col-4 pl-0">
+			<button type="button" mat-raised-button class="btn btn-main btn-small btn-block btn-book" [class.book]="space.isBooked == true"
+				(click)="onBookClick(space)" [innerHTML]="space.isBooked == true ? 'Pending..' : 'Book'"></button>
+				<button type="button" mat-raised-button class="btn btn-main btn-small btn-block btn-book" (click)="onClickViewMap(availSeatSearchObj)">View Map</button>
+		</div>
+	</div>
+</div>

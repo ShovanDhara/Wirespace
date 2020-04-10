@@ -1,0 +1,48 @@
+<mat-tab-group class="ws-tab" [selectedIndex]="selectedIndex" (selectChange)="onSelectTabChange($event)">
+  <mat-tab label="OFFER">
+    <div class="row m-0 pt-3">
+      <div class="col-12">
+        <span class="seat-icon float-left mr-1"></span>
+        <h6 class="seat float-left mr-2">Seat:</h6>
+        <h6 matLine class="seat-no float-left mr-2">{{seatName}}</h6>
+      </div>
+    </div>
+    <form #seatAvailDateRangeForm="ngForm">
+      <div class="row m-0 pt-3 date-avail-range">
+        <div class="col-12 col-md-6">
+          <div class="ws-datepicker mb-2">
+            <mat-form-field class="example-full-width">
+              <input matInput [matDatepicker]="fromDate" (click)="fromDate.open()" [max]="seatAvailDateRangeObj.toDate" required name="fromDate"
+                #fromDate="ngModel" [(ngModel)]="seatAvailDateRangeObj.fromDate" placeholder="From date">
+                <mat-datepicker-toggle matSuffix [for]="fromDate">
+                  <i class="material-icons" matDatepickerToggleIcon>date_range</i>
+                </mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #fromDate></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="ws-datepicker mb-`2">
+            <mat-form-field class="example-full-width">
+              <input matInput [matDatepicker]="toDate" [min]="seatAvailDateRangeObj.fromDate" (click)="toDate.open()" placeholder="To date"
+                required name="toDate" #toDate="ngModel" [(ngModel)]="seatAvailDateRangeObj.toDate">
+                <mat-datepicker-toggle matSuffix [for]="toDate">
+                  <i class="material-icons" matDatepickerToggleIcon>date_range</i>
+                </mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #toDate></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 offset-md-3">
+          <button type="button" mat-raised-button class="btn btn-main btn-block" (click)="onOfferSeatClick()" [disabled]="!seatAvailDateRangeForm.valid">Offer Seat</button>
+        </div>
+      </div>
+    </form>
+  </mat-tab>
+  <mat-tab label="AVAIL">
+    <avail-space></avail-space>
+  </mat-tab>
+  <mat-tab label="MANAGE">
+    <manage-space></manage-space>
+  </mat-tab>
+</mat-tab-group>

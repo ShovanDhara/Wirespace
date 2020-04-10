@@ -1,0 +1,127 @@
+.small-video {
+    width: 300vw;
+    max-height: 200vh;
+    object-fit: contain;
+}
+
+/deep/ zxing-scanner video.small-video {
+    width: 300px;
+    height: 200px;
+    width: 100%;
+}
+
+.scanner-wrapper {
+    position: relative;
+}
+
+.no-device-icon {
+    border: 1px solid #ccc;
+    height: 100px;
+    border-radius: 50%;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.no-device-icon .material-icons {
+    color: #dc3545;
+    font-size: 54px;
+}
+
+.no-device-wrapper {
+    color: #928e8e;
+}
+
+.scanner {
+    min-height: 300px;
+}
+
+.seat-no {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 19px;
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #64A709;
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 29px;
+    z-index: 99;
+    text-align: center;
+    margin-left: -65px;
+    height: 26px;
+    margin-top: -13px;
+}
+
+.scanner-camera-wrapper {
+    position: relative;
+}
+
+.seat-image {
+    background: url(assets/images/seat.png) no-repeat center center #f7f4f4;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    position: absolute;
+    left: -10px;
+    top: -13px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3)
+}
+
+.wpl-select {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    overflow: hidden;
+    background-color: #fff;
+    background: url(assets/images/down-arrow.png) no-repeat 97% center #fff;
+}
+
+.wpl-select select {
+    padding: 5px 8px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.wpl-select select:focus {
+    outline: none;
+}
+
+.camera-list {
+    min-width: 70%;
+}
+
+.seat-no-booked {
+    line-height: 29px;
+    font-size: 16px;
+    color: #fd7e14;
+}
+
+.seat-no-booked span {
+    font-size: 12px;
+    color: #5d5757;
+}
+
+.select-camera-label {
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
+}

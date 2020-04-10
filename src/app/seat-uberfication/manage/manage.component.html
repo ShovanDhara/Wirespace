@@ -1,0 +1,47 @@
+<div class="search-container">
+	<div class="">
+		<!--*ngIf="isAvailSeatContainerVisible"-->
+		<div class="manage-approvals-container pt-3 border-bottom pb-3 mb-2">
+			<h6 class="font-weight-bold">My Approval:</h6>
+			<div class="building-details"><span class="grey-text">{{totalRequestNo}} Requests for your seat</span> |
+				<a href="jaavascript:void(0)"
+					>View All</a>
+			</div>
+			<div class="row pt-3 m-0" *ngFor="let approval of approvals">
+				<div class="col-2 p-0">
+					<span class="mr-1 text-center user-icon"><i class="material-icons">person</i></span>
+				</div>
+				<div class="col-10 space-desc pl-0">
+					<p matLine class="mb-1"> <span class="font-weight-bold">{{approval.name}} ({{approval.aid}})</span></p>
+					<p matLine class="grey-text"> {{approval.fromDate}} to {{approval.toDate}} </p>
+					<div class="clear"></div>
+					<div class="row m-0">
+						<div class="col-5 pl-0">
+							<button type="button" mat-raised-button class="btn btn-main btn-small btn-block" (click)="onClickApprove()" >Approve</button>
+						</div>
+						<div class="col-5 p-0">
+							<button type="button" mat-raised-button class="btn btn-main btn-small btn-block" >Details</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="manage-request-container pt-3 pb-3">
+			<h6 class="font-weight-bold">My Requests:</h6>
+			<div class="building-details"><span class="grey-text">You requested for {{myRequest}} seat</span> |
+				<a href="jaavascript:void(0)"
+					>View All</a>
+			</div>
+			<div class="row pt-3 m-0" *ngFor="let request of requests">
+				<div class="col-2 p-0">
+					<span class="seat-icon float-left mr-1"></span>
+				</div>
+				<div class="col-10 space-desc pl-0">
+					<p matLine class="mb-1"> <span class="font-weight-bold">{{request.seat}}</span> ({{request.wing}})</p>
+					<p matLine class="grey-text mb-1"> {{request.fromDate}} to {{request.toDate}} </p>
+					<span class="request-status">{{request.status}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

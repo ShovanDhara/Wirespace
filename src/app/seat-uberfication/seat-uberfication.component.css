@@ -1,0 +1,93 @@
+.seat {
+    color: #948e8a;
+}
+
+.seat-no {
+    color: rgb(214, 89, 16);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.seat-no, .seat {
+    line-height: 26px;
+}
+
+.seat-icon {
+    background: url(assets/images/seat.png) no-repeat center center;
+    height: 32px;
+    width: 32px;
+    display: block;
+}
+
+.user-icon .material-icons {
+    color: #948f8f;
+    font-size: 40px;
+}
+
+.request-status {
+    color: #fd7e14;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .selector {
+    border: none;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp {
+    width: 100% !important;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .weekdaytitle {
+    background: none;
+    padding: 10px 5px 18px;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .daycell {
+    padding: 8px 5px 8px;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .markcurrday {
+    background-color: #aee0e0;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .selecteddaybegin, /deep/ my-date-range-picker.custom-range .mydrp .selecteddayend {
+    background: none;
+    border-radius: 0;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .range {
+    background: #ef914533 !important;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .datevalue {
+    background: transparent;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    display: block;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .selecteddaybegin span, /deep/ my-date-range-picker.custom-range .mydrp .selecteddayend span {
+    background-color: #ef9145;
+    text-decoration: none;
+    color: #fff;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .daycell:hover {
+    background: none;
+}
+
+/deep/ my-date-range-picker.custom-range .mydrp .daycell:focus {
+    outline: none;
+}
+
+/deep/ .ws-datepicker mat-datepicker-toggle .mat-icon-button {
+    margin-bottom: 12px;
+}

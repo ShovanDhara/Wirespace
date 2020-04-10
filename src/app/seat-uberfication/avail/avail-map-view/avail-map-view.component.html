@@ -1,0 +1,12 @@
+<div>
+	<h5 mat-dialog-title>
+		{{data.buildingBlock}} Floor ({{data.floor}})
+		<a class="close" (click)="closeFloorMapModal()"><i class="material-icons">close</i></a>
+	</h5>
+	<div mat-dialog-content>
+		<img src="./assets/images/mapView.jpg" height="100%" width="250px" alt="building map image" />
+	</div>
+	<div mat-dialog-actions class="justify-content-center">
+		<button type="button" mat-raised-button class="btn btn-main" (click)="closeFloorMapModal()">OK</button>
+	</div>
+</div>

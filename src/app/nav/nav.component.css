@@ -1,0 +1,76 @@
+#app-main-nav {
+	background: #032F48;
+	padding: 10px 10px 10px;
+}
+
+.nav-link {
+	color: #879CA9;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	border-radius: 15px;
+}
+
+.nav-link.active {
+	background: #005587;
+	color: #b8d3e2;
+}
+
+/*----------------------------------------[Responsive]------------------------------------------------------*/
+
+/*For Iphone 5 portrait view*/
+
+@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation:portrait) {}
+
+/*Extra small devices (portrait phones, less than 576px)*/
+
+@media (max-width: 320px) {}
+
+@media (max-width: 414px) {}
+
+@media (max-width: 575px) {}
+
+/*// Small devices (landscape phones, 576px and up)*/
+
+/*For Iphone 6,7,8*/
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/*For Iphone 6+,7+,8+*/
+
+@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 3) {}
+
+@media (max-width: 767px) {
+	#app-main-nav {
+		justify-content: center;
+	}
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#app-main-nav {
+		justify-content: center;
+	}
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+
+@media (max-width: 991px) {}
+
+/*// Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	#app-main-nav {
+		justify-content: center;
+	}
+}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1024px) and (max-width: 1199px) {}
+
+/* Landscape for Galaxy */
+
+@media only screen and (max-device-width: 480px) and (orientation: landscape) {}
+
+@media screen and (device-width: 640px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 3) {}

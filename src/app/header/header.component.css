@@ -1,0 +1,19 @@
+#app-header{
+	background:#032F48;
+}
+.brand-logo{
+	text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+}
+.brand-logo a{
+    color: #fff;
+}
+.nav-icon{
+	position:absolute;
+	left:10px;
+	top:15px;
+}
+.nav-icon a{
+	color:#fff;
+}

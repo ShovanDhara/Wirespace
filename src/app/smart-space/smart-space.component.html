@@ -1,0 +1,89 @@
+<div class="search-container" *ngIf="isSearchContainerVisible">
+	<form #smartSpaceSearchForm="ngForm">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Country" required id="country" name="country" #country="ngModel" [(ngModel)]="smartSpaceSearchObj.country"
+						(selectionChange)="onChangeControl($event.value, 'country')">
+						<mat-option *ngFor="let country of countries" [value]="country.value">
+							{{ country.name }}
+						</mat-option>
+						</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select City" required id="city" name="city" #city="ngModel" [(ngModel)]="smartSpaceSearchObj.city"
+						(selectionChange)="onChangeControl($event.value, 'city')">
+						<mat-option *ngFor="let city of cities" [value]="city.value">
+							{{ city.name }}
+						</mat-option>
+						</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Facility" required id="facility" name="facility" #facility="ngModel" [(ngModel)]="smartSpaceSearchObj.facility">
+						<mat-option *ngFor="let facility of facilities" [value]="facility.value">
+							{{ facility.name }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6">
+				<mat-form-field>
+					<mat-select placeholder="Select Building" required id="buildingBlock" name="buildingBlock" #buildingBlock="ngModel" [(ngModel)]="smartSpaceSearchObj.buildingBlock">
+						<mat-option *ngFor="let block of buildingBlocks" [value]="block.value">
+							{{ block.name }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-12 col-md-6 offset-md-3 mt-3">
+				<button type="button" mat-raised-button class="btn btn-main btn-block" [disabled]="!smartSpaceSearchForm.valid" (click)="findSpace()">Find Smart Space</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="search-result-container" *ngIf="!isSearchContainerVisible">
+	<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper" class="custom-stepper">
+		<mat-step [stepControl]="firstFormGroup">
+			<h6 class="pb-2 pt-2 font-weight-bold">Smart Space Available in:</h6>
+			<div class="row m-0 mt-3 border-bottom mb-2 pb-2" *ngFor="let space of availableSpaces">
+				<div class="col-1 p-0">
+					<span class="star"><i class="material-icons">star_rate</i></span>
+				</div>
+				<div class="col-7 space-desc">
+					<h6 matLine> {{space.floor}} Floor ({{space.wing}} Wing) </h6>
+					<p matLine> {{space.seats}} Seats approx. </p>
+				</div>
+				<div class="col-4 pl-0">
+					<button type="button" mat-raised-button class="btn btn-main btn-small btn-block btn-book" mat-button (click)="onClickViewMap(space)">View Map</button>
+					<button type="button" mat-raised-button class="btn btn-small btn-block btn-book btn-blue" mat-button matStepperNext (click)="onProceedClick(space)">Proceed</button>
+				</div>
+			</div>
+		</mat-step>
+		<mat-step [stepControl]="secondFormGroup">
+			<mat-tab-group class="ws-tab" [selectedIndex]="selectedIndex" (selectChange)="onSelectTabChange($event)">
+				<mat-tab label="Book or Release Seat">
+					<scanner-element (qrResultString)="getResultToBookSeat($event)" [scannerType]="scannerType" (onReleaseSeatOutput)="onReleaseSeat($event)"
+						[bookedFloor]="selectedFloor"></scanner-element>
+				</mat-tab>
+				<!--<mat-tab label="Release Seat">
+					<scanner-element (qrResultString)="getResultToBookSeat($event)" [scannerType]="scannerType"></scanner-element>
+					<p>{{scannedData}}</p>
+				</mat-tab>-->
+			</mat-tab-group>
+			<div class="col-12 col-md-6 offset-md-3 p-0">
+				<button type="button" mat-raised-button class="btn btn-small btn-block btn-blue" mat-button matStepperPrevious><i class="material-icons">keyboard_backspace</i> Back</button>
+			</div>
+		</mat-step>
+		<mat-step>
+			You are now done.
+			<div>
+				<button mat-button matStepperPrevious>Back</button>
+				<button mat-button (click)="stepper.reset()">Reset</button>
+			</div>
+		</mat-step>
+	</mat-horizontal-stepper>
+</div>

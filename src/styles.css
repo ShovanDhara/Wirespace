@@ -1,0 +1,181 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+	background: #fff;
+	font-size: 13px;
+	color: #555655;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:hover, a:active {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.grey-text {
+	color: #ada8a8;
+}
+
+.mt-100 {
+	margin-top: 100px;
+}
+
+.mat-form-field {
+	width: 100%;
+}
+
+/**********select box************/
+
+.mat-select {
+	line-height: 25px;
+}
+
+.mat-select-value-text {
+	font-size: 16px;
+}
+
+.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+	display: none!important;
+}
+
+.mat-select-arrow {
+	border: solid rgb(0, 100, 123)!important;
+	border-width: 0 2px 2px 0!important;
+	display: inline-block;
+	padding: 4px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	margin-bottom: 5px!important;
+}
+
+.mat-select-value {
+	color: #555655;
+}
+
+/*************Tab style******************/
+
+mat-tab-group.ws-tab .mat-tab-labels {
+	justify-content: center;
+}
+
+mat-tab-group.ws-tab .mat-tab-label {
+	flex-grow: 1;
+	height: 33px;
+}
+
+mat-tab-group.ws-tab.mat-primary .mat-ink-bar {
+	background-color: #fd7e14;
+}
+
+/**********dialog************/
+
+.cdk-overlay-pane {
+	max-width: 95vw!important;
+	margin: 0 auto!important;
+}
+
+.custom-dialog .mat-dialog-container {
+	padding: 0!important;
+	border-radius: 5px!important;
+}
+
+.mat-dialog-content {
+	padding: 0!important;
+	margin: 0!important;
+}
+
+.mat-dialog-actions {
+	margin: 0!important;
+}
+
+.message-dialog .mat-dialog-title {
+	font-size: 27px;
+}
+
+.message-dialog .mat-dialog-content {
+	font-size: 15px;
+}
+
+.mat-dialog-title {
+	font-family: inherit!important;
+	text-align: center;
+	margin: 10px 0 29px!important;
+	font-size: 15px;
+	position: relative;
+}
+
+.btn {
+	padding: 10px!important;
+	border-radius: 20px!important;
+	outline: none!important;
+	border: none!important;
+	font-weight: bold!important;
+	line-height: 20px!important;
+	font-size: 12px!important;
+}
+
+.btn-small {
+	padding: 5px!important;
+}
+
+.btn-main, .btn-main:hover, .btn-main:focus, .btn-main:active {
+	background: #64A709;
+	color: #fff!important;
+}
+
+.btn-main.book {
+	background: #007bff;
+}
+
+.btn-orange {
+	background: #de792f;
+	color: #fff!important;
+	box-shadow: none !important;
+	opacity: 1;
+}
+
+.btn.btn-book {
+	font-weight: normal !important;
+	padding: 2px !important;
+	text-transform: none;
+}
+
+.btn.btn-blue {
+	background: #3389b9;
+	color: #fff;
+}
+
+.success-text {
+	color: #64A709;
+	border-bottom: 1px solid;
+	padding-bottom: 17px;
+}
+
+.alert-text {
+	color: #d66614;
+	border-bottom: 1px solid;
+	padding-bottom: 17px;
+}
+
+.success-text .material-icons {
+	font-size: 37px;
+	top: 9px;
+	position: relative;
+}
+
+/*------------[Stepper]----------------------*/
+
+.custom-stepper .mat-horizontal-content-container {
+	padding: 0;
+}
+
+.custom-stepper .mat-horizontal-stepper-header {
+	display: none;
+}
+
+.custom-stepper .mat-stepper-horizontal-line {
+	border-top: none;
+}

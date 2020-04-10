@@ -1,0 +1,80 @@
+<div class="scanner pt-3 d-flex align-items-center justify-content-center flex-column">
+	<div class="booked-seat mb-1" *ngIf="bookedSeat">
+		<h6 class="text-center">
+			<span class="font-weight-bold" style="font-size: 13px;">Booked seat by you: </span>
+			<span class="seat-no-booked font-weight-bold">{{bookedSeat}},
+				<span class="pl-1 font-weight-normal">({{userBookedFloor}}) Floor</span>
+			</span>
+		</h6>
+		<div class="row m-0">
+			<div class="col-12">
+				<button type="button" mat-raised-button class="btn btn-block btn-main btn-sm btn-small" mat-button (click)="onReleaseSeat()">Release Seat</button>
+			</div>
+		</div>
+		<hr/>
+	</div>
+	<div class="camera-list" *ngIf="availableDevices">
+		<!--*ngIf="availableDevices"-->
+		<h6 class="text-center">Scan seat no.</h6>
+		<hr/>
+		<label for="video-input-select" class="select-camera-label">Select your camera:</label>
+		<!--<mat-form-field>
+			<mat-select placeholder="Select Device" id="videoInputSelect" name="videoInputSelect" #videoInputSelect="ngModel" [(ngModel)]="selectedDevice.deviceId"
+				(selectionChange)="onDeviceSelectChange($event.value)">
+				<mat-option *ngFor="let device of availableDevices" [value]="device.deviceId">
+					{{ device.label }}
+				</mat-option>
+				</mat-select>
+		</mat-form-field>-->
+		<div class="wpl-select">
+			<select id="video-input-select" (change)="onDeviceSelectChange($event.target.value)">
+				<option value="" [selected]="!selectedDevice">No Device</option>
+				<option *ngFor="let device of availableDevices" [value]="device.deviceId" [selected]="selectedDevice && device.deviceId === selectedDevice.deviceId">{{ device.label }}</option>
+			</select>
+		</div>
+	</div>
+	<div class="scanner-wrapper col-12" [hidden]="!hasCameras">
+		<!--[hidden]="!hasCameras"-->
+		<div class="scanner-camera-wrapper">
+			<div class="mb-3 result" *ngIf="scanResult">
+				<div class="seat-image"></div>
+				<span class="seat-no">{{ scanResult }}</span>
+			</div>
+			<zxing-scanner #scanner class="test-class" [scannerEnabled]="scannerEnabled" [device]="selectedDevice" (camerasFound)="displayCameras($event)"
+			 (scanSuccess)="handleQrCodeResult($event)" [cssClass]="'small-video'"></zxing-scanner>
+			<!-- <zxing-scanner #scanner class="test-class" [scannerEnabled]="scannerEnabled" [device]="selectedDevice" (camerasFound)="displayCameras($event)"
+			 (scanSuccess)="handleQrCodeResult($event)" [cssClass]="'small-video'"></zxing-scanner> -->
+		</div>
+		<p class="text-center">OR</p>
+		<div class="input-seat-no p-2">
+			<form class="example-form">
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Enter Seat No" name="seatNo" [(ngModel)]="scanResult">
+				</mat-form-field>
+			</form>
+		</div>
+		<div class="row m-0">
+			<!--<div class="col-6 pl-0">
+				<button type="button" mat-raised-button class="btn btn-block btn-secondary btn-sm" mat-button (click)="scannerEnabled=!scannerEnabled">{{ scannerEnabled ? 'Disable Scanner': 'Enable Scanner' }}</button>
+			</div>-->
+			<!--<div class="col-12 p-0">
+				
+			</div>-->
+			<div class="col-6 pl-0 mb-4">
+				<button type="button" mat-raised-button class="btn btn-block btn-main btn-sm" mat-button [disabled]="!scanResult" (click)="onBookOrReleaseSeat('Book')">Book Seat</button>
+			</div>
+			<div class="col-6 pr-0 mb-4">
+				<!--<button type="button" mat-raised-button class="btn btn-block btn-main btn-sm" mat-button [disabled]="!scanResult" (click)="onBookOrReleaseSeat('Release')">Release Seat</button>-->
+				<button type="button" mat-raised-button class="btn btn-block btn-secondary btn-sm" mat-button (click)="refreshView()">Refresh</button>
+			</div>
+		</div>
+	</div>
+	<div class="row m-0 hidden" [hidden]="hasCameras">
+		<div class="no-device-wrapper  mt-3 mb-3 col-12 col-md-6 offset-md-3">
+			<div class="no-device-icon no-device-icon d-flex align-items-center justify-content-center">
+				<i class="material-icons">videocam_off</i>
+			</div>
+			<h6 class="text-center mt-3 mb-3">Looks like your device does not have cameras. </h6>
+		</div>
+	</div>
+</div>

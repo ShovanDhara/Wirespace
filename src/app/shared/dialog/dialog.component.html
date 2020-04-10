@@ -1,0 +1,9 @@
+<h1 mat-dialog-title class="alert-text" *ngIf="isErrorAlert"><i class="material-icons">feedback</i> {{title}}</h1>
+<h1 mat-dialog-title class="success-text" *ngIf="!isErrorAlert"><i class="material-icons">done_all</i> {{title}}</h1>
+<div mat-dialog-content>
+    <p>{{message}}</p>
+</div>
+<div mat-dialog-actions>
+    <button type="button" mat-raised-button *ngIf="!isErrorAlert" class="btn btn-main btn-block" (click)="onNoClick()" cdkFocusInitial>Ok</button>
+    <button type="button" mat-raised-button *ngIf="isErrorAlert" class="btn btn-orange btn-block" (click)="onNoClick()" cdkFocusInitial>Got It</button>
+</div>

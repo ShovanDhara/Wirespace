@@ -1,0 +1,12 @@
+<div>
+	<h5 mat-dialog-title>
+		{{data.floor}} Floor ({{data.wing}} Wing) 
+		<a class="close" (click)="closeFloorMapModal()"><i class="material-icons">close</i></a>
+	</h5>
+	<div mat-dialog-content>
+	  <img src="./assets/images/map.png" height="100%" width="100%" alt="building map image" />
+	</div>
+	<div mat-dialog-actions class="justify-content-center">
+	  <button type="button" mat-raised-button class="btn btn-main" (click)="closeFloorMapModal()">OK</button>
+	</div>
+</div>
